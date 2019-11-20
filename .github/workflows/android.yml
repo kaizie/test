@@ -24,4 +24,4 @@ jobs:
         # Artifact name
         name: KikeArtifact
         # Directory containing files to upload
-        path: path/to/my/artifact/
+        path: /
