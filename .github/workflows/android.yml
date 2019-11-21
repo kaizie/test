@@ -24,4 +24,4 @@ jobs:
         # Artifact name
         name: KikeArtifact
         # Directory containing files to upload
-        path: app
+        path: app/build/outputs/apk/release/app-release-unsigned.apk
