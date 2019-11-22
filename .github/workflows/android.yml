@@ -19,7 +19,7 @@ jobs:
     - name: Publish to Github Packages
       uses: ShaunLWM/action-release-debugapk@master
       env:
-       GITHUB_TOKEN: ${{ secrets.TOKEN }}
+       GITHUB_TOKEN: ${{ secrets.ActionsPackagesToken }}
        APP_FOLDER: app
        RELEASE_TITLE: New kike test build
       
