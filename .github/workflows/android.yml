@@ -4,11 +4,10 @@ on:
   push:
     branches:    
       - master
+
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v1
     - name: set up JDK 1.8
@@ -17,11 +16,18 @@ jobs:
         java-version: 1.8
     - name: Build with Gradle
       run: ./gradlew build
+    - name: Publish to Github Packages
+      uses: ShaunLWM/action-release-debugapk@master
+      env:
+       GITHUB_TOKEN: ${{ secrets.TOKEN }}
+       APP_FOLDER: app
+       RELEASE_TITLE: New kike test build
       
-    - name: Upload artifact
-      uses: actions/upload-artifact@v1.0.0
-      with:
-        # Artifact name
-        name: KikeArtifact
-        # Directory containing files to upload
-        path: app/build/outputs/apk/release/app-release-unsigned.apk
+      
+    #- name: Upload artifact
+    #  uses: actions/upload-artifact@v1.0.0
+    #  with:
+    #    # Artifact name
+    #    name: KikeArtifact
+    #    # Directory containing files to upload
+    #    path: app/build/outputs/apk/release/app-release-unsigned.apk
